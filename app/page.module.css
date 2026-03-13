@@ -1,0 +1,25 @@
+.page { min-height: 100vh; display: flex; flex-direction: column; }
+
+.header { background: var(--bb-dark); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 8px; }
+.logoIcon { width: 24px; height: 24px; background: var(--bb-brick); display: flex; align-items: center; justify-content: center; }
+.logoWord { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: white; }
+.headerTitle { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.body { flex: 1; padding: 20px; max-width: 680px; width: 100%; margin: 0 auto; }
+.topRow { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.h1 { font-size: 22px; font-weight: 600; color: var(--bb-dark); }
+
+.btnPrimary { background: var(--bb-brick); color: white; border: none; padding: 10px 18px; font-size: 14px; font-weight: 600; text-decoration: none; display: inline-block; }
+.btnPrimary:hover { background: #9a4a2c; }
+
+.empty { text-align: center; padding: 60px 20px; }
+.emptyTitle { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--bb-mid); }
+.emptyText { font-size: 14px; color: var(--bb-muted); }
+
+.visitList { display: flex; flex-direction: column; gap: 8px; }
+.visitCard { background: white; border: 0.5px solid var(--bb-rule); padding: 16px; text-decoration: none; display: flex; flex-direction: column; gap: 4px; position: relative; }
+.visitCard:hover { border-color: var(--bb-brick); }
+.visitName { font-size: 15px; font-weight: 600; color: var(--bb-dark); }
+.visitMeta { font-size: 12px; color: var(--bb-muted); }
+.visitArrow { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--bb-muted); font-size: 18px; }
