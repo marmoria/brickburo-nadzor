@@ -1,0 +1,28 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bb-dark: #1C1C1C;
+  --bb-brick: #B85C3A;
+  --bb-brick-light: #F5EDE8;
+  --bb-warm: #F7F4F0;
+  --bb-rule: #D4C8BD;
+  --bb-muted: #888076;
+  --bb-mid: #3A3A3A;
+}
+
+body {
+  font-family: -apple-system, 'PT Sans', Arial, sans-serif;
+  background: var(--bb-warm);
+  color: var(--bb-dark);
+  min-height: 100vh;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
