@@ -6,31 +6,22 @@ export async function POST(req: NextRequest) {
     const data = await req.json()
     const html = buildPdfHtml(data)
 
-    let chromium: any
-    let puppeteer: any
+    const chromium = (await import('@sparticuz/chromium')).default
+    const puppeteer = (await import('puppeteer-core')).default
 
-    if (process.env.NODE_ENV === 'production') {
-      chromium = (await import('@sparticuz/chromium')).default
-      puppeteer = (await import('puppeteer-core')).default
-    } else {
-      puppeteer = (await import('puppeteer')).default
-    }
-
-    const browser = await puppeteer.launch(
-      process.env.NODE_ENV === 'production'
-        ? { args: chromium.args, executablePath: await chromium.executablePath(), headless: true }
-        : { headless: true }
-    )
+    const browser = await puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    })
 
     const page = await browser.newPage()
     await page.setContent(html, { waitUntil: 'networkidle0' })
-
     const pdf = await page.pdf({
       format: 'A4',
       printBackground: true,
       margin: { top: '0', bottom: '0', left: '0', right: '0' },
     })
-
     await browser.close()
 
     return new NextResponse(pdf, {
