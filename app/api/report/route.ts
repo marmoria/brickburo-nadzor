@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     })
     await browser.close()
 
-    return new NextResponse(pdf, {
+    return new NextResponse(pdf as unknown as BodyInit, {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': `attachment; filename="AS_vizit_${data.visit.visit_number || 1}.pdf"`,
